@@ -1,4 +1,4 @@
-const API = "http://localhost:5000";
+const API = "http://localhost:5000";  //Temp - backend not deployed yet
 
 document.getElementById("studentForm")?.addEventListener("submit", async (e) => {
   e.preventDefault();
