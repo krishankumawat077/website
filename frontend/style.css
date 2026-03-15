@@ -1,12 +1,17 @@
 body {
-  font-family: Arial;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
   color: white;
   text-align: center;
+
+  min-height: 100vh;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .container {
-  margin-top: 100px;
+  margin-top: 120px;
 }
 
 .buttons a {
