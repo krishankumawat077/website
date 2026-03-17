@@ -1,54 +1,116 @@
-body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
-  color: white;
-  text-align: center;
+/* Import a modern geometric font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-  min-height: 100vh;
-  margin: 0;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    /* Animated Gradient Background */
+    background: linear-gradient(-45deg, #6a11cb, #2575fc, #a855f7, #00d2ff);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: white;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Background Animation Logic */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .container {
-  margin-top: 120px;
+    padding: 20px;
 }
 
-.buttons a {
-  padding: 15px 30px;
-  margin: 10px;
-  background: white;
-  color: black;
-  border-radius: 30px;
-  text-decoration: none;
-  transition: 0.3s;
+/* Main Heading Style */
+h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
 }
 
-.buttons a:hover {
-  transform: scale(1.1);
-  background: #ffdd57;
+/* Glassmorphism Card Style (Used for Form and Student Cards) */
+.form, #students div {
+    background: rgba(255, 255, 255, 0.15); /* Translucent white */
+    backdrop-filter: blur(12px); /* The "Frosted" effect */
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    padding: 30px;
+    width: 350px;
+    margin: 20px auto;
+    color: white;
 }
 
-form {
-  background: white;
-  color: black;
-  width: 300px;
-  margin: 100px auto;
-  padding: 20px;
-  border-radius: 20px;
+/* Button Styling */
+.buttons a, button {
+    display: inline-block;
+    padding: 12px 28px;
+    margin: 10px;
+    background: white;
+    color: #2575fc;
+    border: none;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }
 
-input, button {
-  width: 90%;
-  padding: 10px;
-  margin: 10px;
+.buttons a:hover, button:hover {
+    transform: translateY(-3px); /* Subtle lift */
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+    background: #ffdd57;
+    color: #333;
 }
 
-#students div {
-  background: white;
-  color: black;
-  margin: 10px auto;
-  padding: 10px;
-  width: 300px;
-  border-radius: 10px;
+/* Input Field Styling */
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    outline: none;
+    transition: 0.3s;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+input:focus {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: white;
+}
+
+/* Back Link */
+#back-link {
+    display: block;
+    margin-top: 15px;
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+#back-link:hover {
+    opacity: 1;
+    text-decoration: underline;
 }
