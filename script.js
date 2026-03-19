@@ -2,7 +2,7 @@
 const contactForm = document.getElementById('studentForm‎');
 
 // 2. Listen for when the user clicks the "Submit" button
-contactForm.addEventListener('submit', async (e) => {
+studentForm.addEventListener('submit', async (e) => {
     
     // STOP the browser from refreshing (Fixes the issue in your screenshot)
     e.preventDefault(); 
