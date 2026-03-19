@@ -1,38 +1,43 @@
-const API = "https://campus-connect-e5zh.onrender.com/";  
+// 1. Find the form in your HTML using its ID
+const contactForm = document.getElementById('contactForm');
 
-document.getElementById("studentForm")?.addEventListener("submit", async (e) => {
-  e.preventDefault();
+// 2. Listen for when the user clicks the "Submit" button
+contactForm.addEventListener('submit', async (e) => {
+    
+    // STOP the browser from refreshing (Fixes the issue in your screenshot)
+    e.preventDefault(); 
 
-  const data = {
-    name: name.value,
-    branch: branch.value,
-    year: year.value,
-    skills: skills.value
-  };
+    console.log("Form submission detected! Sending to Render...");
 
-  await fetch(API + "/students", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data)
-  });
+    // 3. Collect the data from the input fields
+    const formData = {
+        name: contactForm.name.value,
+        email: contactForm.email.value,
+        message: contactForm.message.value
+    };
 
-  alert("Submitted!");
-  window.location.href = "view.html";
+    try {
+        // 4. Send the data to your LIVE Render server
+        const response = await fetch('https://my-backend-ko9k.onrender.com/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData) // Convert object to JSON string
+        });
+
+        // 5. Get the response from your server
+        const result = await response.json();
+
+        if (response.ok) {
+            alert("Success! Data saved to MongoDB.");
+            contactForm.reset(); // Clear the form fields
+        } else {
+            alert("Server Error: " + result.error);
+        }
+
+    } catch (error) {
+        console.error("Connection Error:", error);
+        alert("Could not connect to the backend. Is Render awake?");
+    }
 });
-
-async function loadStudents() {
-  const res = await fetch(API + "/students");
-  const students = await res.json();
-
-  students.forEach(s => {
-    document.getElementById("students").innerHTML += `
-      <div>
-        <h4>${s.name}</h4>
-        <p>${s.branch} | Year ${s.year}</p>
-        <p>${s.skills}</p>
-      </div>
-    `;
-  });
-}
-
-loadStudents();
