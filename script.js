@@ -1,5 +1,5 @@
 // 1. Find the form in your HTML using its ID
-const contactForm = document.getElementById('contactForm');
+const contactForm = document.getElementById('studentForm‎');
 
 // 2. Listen for when the user clicks the "Submit" button
 contactForm.addEventListener('submit', async (e) => {
