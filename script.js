@@ -1,5 +1,5 @@
 // 1. Find the form in your HTML using its ID
-const contactForm = document.getElementById('studentForm‎');
+const studentForm = document.getElementById('studentForm‎');
 
 // 2. Listen for when the user clicks the "Submit" button
 studentForm.addEventListener('submit', async (e) => {
@@ -11,9 +11,9 @@ studentForm.addEventListener('submit', async (e) => {
 
     // 3. Collect the data from the input fields
     const formData = {
-        name: contactForm.name.value,
-        email: contactForm.email.value,
-        message: contactForm.message.value
+        name: studentForm.name.value,
+        email: studentForm.email.value,
+        message: studentForm.message.value
     };
 
     try {
@@ -31,7 +31,7 @@ studentForm.addEventListener('submit', async (e) => {
 
         if (response.ok) {
             alert("Success! Data saved to MongoDB.");
-            contactForm.reset(); // Clear the form fields
+            studentForm.reset(); // Clear the form fields
         } else {
             alert("Server Error: " + result.error);
         }
