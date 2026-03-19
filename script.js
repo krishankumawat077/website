@@ -13,7 +13,7 @@ studentForm.addEventListener('submit', async (e) => {
     const formData = {
         name: studentForm.name.value,
         email: studentForm.email.value,
-        message: studentForm.message.value
+        message: studentForm.skills.value
     };
 
     try {
